@@ -22,5 +22,7 @@ const gendiff = (filepath1, filepath2) => {
     }
   });
 
-  return diff;
+  return _.sortBy(diff, [function(obj) { return obj.key }]);
 };
+
+export default gendiff;
