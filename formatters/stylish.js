@@ -33,7 +33,7 @@ const json = (diff) => {
     }
   }
 
-  return result.map(key => console.log(key));
+  return result;
 };
 
 export default json;

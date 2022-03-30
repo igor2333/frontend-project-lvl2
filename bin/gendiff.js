@@ -7,8 +7,8 @@ program
   .version('0.0.1')
   .option('-f, --format [type]', 'output format')
   .arguments('<filepath1> <filepath2> [format]')
-  .action((filepath1, filepath2, format = 'json') => {
-    gendiff(filepath1, filepath2, format);
+  .action((filepath1, filepath2, format = 'stylish') => {
+    return gendiff(filepath1, filepath2, format).map(key => console.log(key));
   });
 
 program.parse(process.argv);

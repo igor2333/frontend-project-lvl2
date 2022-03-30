@@ -1,4 +1,5 @@
-import json from '../formatters/json.js';
+import plain from '../formatters/plain.js';
+import stylish from '../formatters/stylish.js';
 import parser from './parser.js';
 import _ from 'lodash';
 
@@ -25,10 +26,18 @@ const gendiff = (filepath1, filepath2, format) => {
 
   const sortedDiff = _.sortBy(diff, [function(obj) { return obj.key }]);
 
-  if (format === 'json') {
-    return json(sortedDiff);
-  } else {
-    return sortedDiff;
+  switch (format) {
+    case 'stylish':
+      return stylish(sortedDiff);
+      break;
+
+    case 'plain': 
+      return plain(sortedDiff);
+      break;
+  
+    default:
+      return stylish(sortedDiff);
+      break;
   }
 };
 
