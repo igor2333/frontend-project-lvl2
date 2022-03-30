@@ -1,7 +1,8 @@
+import json from '../formatters/json.js';
 import parser from './parser.js';
 import _ from 'lodash';
 
-const gendiff = (filepath1, filepath2) => {
+const gendiff = (filepath1, filepath2, format) => {
   const file1 = parser(filepath1);
   const file2 = parser(filepath2);
 
@@ -22,7 +23,13 @@ const gendiff = (filepath1, filepath2) => {
     }
   });
 
-  return _.sortBy(diff, [function(obj) { return obj.key }]);
+  const sortedDiff = _.sortBy(diff, [function(obj) { return obj.key }]);
+
+  if (format === 'json') {
+    return json(sortedDiff);
+  } else {
+    return sortedDiff;
+  }
 };
 
 export default gendiff;

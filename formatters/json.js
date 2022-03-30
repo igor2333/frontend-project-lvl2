@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import gendiff from '../src/index.js'
 
 const json = (diff) => {
   const result = [];
