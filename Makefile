@@ -1,11 +1,5 @@
-gendiff:
-	node bin/gendiff.js
+genDiff:
+	node src/bin/genDiff.js
 
-version:
-	node bin/gendiff.js -V
-
-help:
-	node bin/gendiff.js -h
-
-format:
-	node bin/gendiff.js -f
+lint:
+	npx eslint .
